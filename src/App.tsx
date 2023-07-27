@@ -15,7 +15,7 @@ function App() {
     }
   return (
     <div className="App">
-      <BoardComponent></BoardComponent>
+      <BoardComponent board={board} setBoard={setBoard}></BoardComponent>
     </div>
   );
 }
