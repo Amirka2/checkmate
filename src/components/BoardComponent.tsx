@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import {Board} from "../models/Board";
+import CellComponent from "./CellComponent";
 
 interface boardProps {
     board: Board,
@@ -8,7 +9,12 @@ interface boardProps {
 const BoardComponent: FC<boardProps> = (props: boardProps) => {
     return (
         <div className='board'>
-            
+            {props.board.cells.map((row, index) => {
+                return (<div className='row'>
+                            {row.map(cell => <CellComponent cell={cell}/>)}
+                        </div>)
+            })
+            }
         </div>
     );
 };
