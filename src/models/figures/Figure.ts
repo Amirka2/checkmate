@@ -3,6 +3,7 @@ import logo from "../../../public/figures-logos/black-knight.png";
 import {Cell} from "../Cell";
 
 export enum FigureNames {
+    FIGURE = '',
     PAWN = 'pawn',
     KING = 'king',
     QUEEN = 'queen',
@@ -12,8 +13,17 @@ export enum FigureNames {
 }
 
 export class Figure {
+    id: number;
     color: Colors;
     logo: typeof logo | null;
     name: FigureNames;
     cell: Cell;
+    constructor(cell: Cell, color: Colors) {
+        this.cell = cell;
+        this.color = color;
+        this.id = Math.random();
+        this.cell.figure = this;
+        this.logo = null;
+        this.name = FigureNames.FIGURE;
+    }
 }
