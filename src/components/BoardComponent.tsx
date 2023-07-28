@@ -11,7 +11,7 @@ const BoardComponent: FC<boardProps> = (props: boardProps) => {
         <div className='board'>
             {props.board.cells.map((row, index) => {
                 return (<div className='row'>
-                            {row.map(cell => <CellComponent cell={cell}/>)}
+                            {row.map(cell => <CellComponent key={cell.id} cell={cell}/>)}
                         </div>)
             })
             }
