@@ -11,7 +11,7 @@ export enum FigureNames {
     BISHOP = 'bishop',
 }
 
-export interface Figure {
+export class Figure {
     color: Colors;
     logo: typeof logo | null;
     name: FigureNames;
