@@ -26,4 +26,12 @@ export class Figure {
         this.logo = null;
         this.name = FigureNames.FIGURE;
     }
+
+    canMove(targetCell: Cell): boolean {
+        return true;
+    }
+
+    move(targetCell: Cell): void {
+
+    }
 }
