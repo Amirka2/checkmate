@@ -1,8 +1,8 @@
 import {Figure, FigureNames} from "./Figure";
 import {Cell} from "../Cell";
 import {Colors} from "../Colors";
-import whiteLogo from "../../../public/figures-logos/white-king.png"
-import blackLogo from "../../../public/figures-logos/black-king.png"
+import whiteLogo from "../../assets/figures-logos/white-king.png"
+import blackLogo from "../../assets/figures-logos/black-king.png"
 
 export class King extends Figure {
     constructor(cell: Cell, color: Colors) {
