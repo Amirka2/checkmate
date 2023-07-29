@@ -15,6 +15,15 @@ const BoardComponent: FC<boardProps> = (props: boardProps) => {
     function isSelected(cell: Cell): boolean {
         return cell.x === selectedCell?.x && cell.y === selectedCell?.y;
     }
+    function highlightCells(cell: Cell): void {
+        props.board.cells.forEach((row) => {
+            row.forEach((cell) => {
+                if (cell.isAvailable) {
+                    cell.
+                }
+            })
+        })
+    }
     return (
         <div className='board'>
             {props.board.cells.map((row, index) => {
