@@ -38,6 +38,10 @@
 .black {
   background-color: #693500;
 }
+.available {
+  background-color: #10ab00;
+  border-radius: 50%;
+}
 .selected {
   background-color: #10ab00;
 }
