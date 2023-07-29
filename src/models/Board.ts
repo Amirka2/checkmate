@@ -24,6 +24,16 @@ export class Board {
         }
     }
 
+    public highlightCells(cell: Cell): void {
+        this.cells.forEach(row => {
+            row.forEach(c => {
+                if (cell.figure?.canMove(c)) {
+                    c.isAvailable = true;
+                }
+            })
+        })
+    }
+
     private getCell(x: number, y: number): Cell {
         return this.cells[y][x];
     }
