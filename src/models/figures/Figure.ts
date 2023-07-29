@@ -27,11 +27,21 @@ export class Figure {
         this.name = FigureNames.FIGURE;
     }
 
+    protected moveHorizontal(cell: Cell) {
+
+    }
+    protected moveVertical(cell: Cell) {
+
+    }
+    protected moveDiagonal(cell: Cell) {
+
+    }
     canMove(targetCell: Cell): boolean {
         return true;
     }
 
     move(targetCell: Cell): void {
-
+        targetCell.figure = this;
+        this.cell.figure = null;
     }
 }
