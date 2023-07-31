@@ -37,6 +37,12 @@ export class Board {
     private getCell(x: number, y: number): Cell {
         return this.cells[y][x];
     }
+
+    public getCopy() {
+        let newBoard = new Board();
+        newBoard.cells = Object.assign([], this.cells);
+        return newBoard;
+    }
     private addPawns() {
         for (let i = 0; i < 8; i++) {
             new Pawn(this.getCell(i, 1),Colors.BLACK);
