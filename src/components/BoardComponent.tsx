@@ -10,6 +10,10 @@ interface boardProps {
 const BoardComponent: FC<boardProps> = (props: boardProps) => {
     const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
     function clickOnCell(cell: Cell): void {
+        if (selectedCell && selectedCell !== cell && selectedCell.figure?.canMove(cell)) {
+            selectedCell.figure = cell.figure;
+            cell.figure = null;
+        }
         setSelectedCell(cell);
     }
     function isSelected(cell: Cell): boolean {
