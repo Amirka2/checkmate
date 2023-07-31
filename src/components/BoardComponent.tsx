@@ -16,13 +16,9 @@ const BoardComponent: FC<boardProps> = (props: boardProps) => {
         return cell.x === selectedCell?.x && cell.y === selectedCell?.y;
     }
     function highlightCells(cell: Cell): void {
-        props.board.cells.forEach((row) => {
-            row.forEach((cell) => {
-                if (cell.isAvailable) {
-                    cell.
-                }
-            })
-        })
+        let newBoard = props.board.getCopy();
+        newBoard.highlightCells(cell);
+        props.setBoard(newBoard);
     }
     return (
         <div className='board'>
@@ -30,7 +26,7 @@ const BoardComponent: FC<boardProps> = (props: boardProps) => {
                 return (<div className='row'>
                             {row.map(cell => <CellComponent
                                 key={cell.id} cell={cell} selected={isSelected(cell)}
-                                clickOnCell={clickOnCell}/>)}
+                                clickOnCell={clickOnCell} isAvailable={cell.isAvailable}/>)}
                         </div>)
             })
             }
