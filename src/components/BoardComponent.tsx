@@ -13,6 +13,9 @@ const BoardComponent: FC<boardProps> = (props: boardProps) => {
 
     }, [selectedCell])
     function clickOnCell(cell: Cell): void {
+        if (!selectedCell && cell.figure === null) {
+            return;
+        }
         if (!selectedCell) { // selection
             highlightCells(cell);
             setSelectedCell(cell);
