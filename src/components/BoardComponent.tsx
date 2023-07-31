@@ -10,15 +10,13 @@ interface boardProps {
 const BoardComponent: FC<boardProps> = (props: boardProps) => {
     const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
     useEffect(() => {
-        if (selectedCell)
-            highlightCells(selectedCell);
+        highlightCells(selectedCell);
     }, [selectedCell])
     function clickOnCell(cell: Cell): void {
         if (!selectedCell && cell.figure === null) {
             return;
         }
         if (!selectedCell) { // selection
-            highlightCells(cell);
             setSelectedCell(cell);
         }
         else if (selectedCell && selectedCell === cell) { // cancel selection
@@ -34,7 +32,7 @@ const BoardComponent: FC<boardProps> = (props: boardProps) => {
     function isSelected(cell: Cell): boolean {
         return cell.x === selectedCell?.x && cell.y === selectedCell?.y;
     }
-    function highlightCells(cell: Cell): void {
+    function highlightCells(cell: Cell | null): void {
         let newBoard = props.board.getCopy();
         newBoard.highlightCells(cell);
         props.setBoard(newBoard);
