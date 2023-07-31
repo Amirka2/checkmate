@@ -17,10 +17,10 @@ const BoardComponent: FC<boardProps> = (props: boardProps) => {
             highlightCells(cell);
             setSelectedCell(cell);
         }
-        if (selectedCell && selectedCell === cell) { // cancel selection
+        else if (selectedCell && selectedCell === cell) { // cancel selection
             setSelectedCell(() => null);
         }
-        if (selectedCell && selectedCell !== cell && selectedCell.figure?.canMove(cell)) { // move figure
+        else if (selectedCell && selectedCell !== cell && selectedCell.figure?.canMove(cell)) { // move figure
             let temp = Object.assign([], selectedCell);
             cell.figure = temp.figure;
             selectedCell.figure = null;
