@@ -10,7 +10,8 @@ interface boardProps {
 const BoardComponent: FC<boardProps> = (props: boardProps) => {
     const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
     useEffect(() => {
-
+        if (selectedCell)
+            highlightCells(selectedCell);
     }, [selectedCell])
     function clickOnCell(cell: Cell): void {
         if (!selectedCell && cell.figure === null) {
