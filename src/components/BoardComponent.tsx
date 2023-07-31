@@ -15,9 +15,10 @@ const BoardComponent: FC<boardProps> = (props: boardProps) => {
     function clickOnCell(cell: Cell): void {
         if (!selectedCell) { // selection
             highlightCells(cell);
+            setSelectedCell(cell);
         }
         if (selectedCell && selectedCell === cell) { // cancel selection
-            setSelectedCell(null);
+            setSelectedCell(() => null);
         }
         if (selectedCell && selectedCell !== cell && selectedCell.figure?.canMove(cell)) { // move figure
             let temp = Object.assign([], selectedCell);
@@ -25,7 +26,6 @@ const BoardComponent: FC<boardProps> = (props: boardProps) => {
             selectedCell.figure = null;
             setSelectedCell(cell);
         }
-        setSelectedCell(cell);
     }
     function isSelected(cell: Cell): boolean {
         return cell.x === selectedCell?.x && cell.y === selectedCell?.y;
